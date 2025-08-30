@@ -1,12 +1,10 @@
 <script lang="ts">
+	import ColorToggle from './../lib/components/app/ColorToggle.svelte';
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
-
+	import { ModeWatcher } from 'mode-watcher';
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
-
+<ColorToggle />
+<ModeWatcher />
 {@render children?.()}
