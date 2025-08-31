@@ -4,13 +4,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* make 100% height meaningful */
 html,
 body {
 	height: 100%;
 }
+
+/* kill default margins */
 body {
 	margin: 0;
 }
+
+/* modern viewport unit for mobile address bar */
 
 :root {
 	--radius: 0.625rem;

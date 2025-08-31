@@ -6,12 +6,7 @@
 	let { children } = $props();
 </script>
 
-<!-- 👇 anchor to viewport height -->
-<div class="flex h-dvh w-full flex-col">
-	<ModeWatcher />
-	<!-- 👇 let shell consume remaining space -->
-	<div class="min-h-0 flex-1">
-		<ResizeShell />
-	</div>
-	{@render children?.()}
-</div>
+<ModeWatcher />
+<ResizeShell />
+
+{@render children?.()}
