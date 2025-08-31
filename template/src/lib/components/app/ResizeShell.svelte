@@ -1,34 +1,26 @@
 <script lang="ts">
+	import AppInnerShell from './AppInnerShell.svelte'
+
 	// Drop this entire file in place of your current component.
-	import { onMount, onDestroy } from 'svelte';
-	import * as Resizable from '$lib/components/ui/resizable/index.js';
-	import MainFrameShell from './MainFrameShell.svelte';
-	import SidebarShell from './SidebarShell.svelte';
-	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
-
-	let paneOne: ReturnType<typeof Resizable.Pane>;
-
-	function toggleFirstPane() {
-		if (!paneOne) return;
-		if (paneOne.isCollapsed?.()) paneOne.expand?.();
-		else paneOne.collapse?.();
-	}
+	import AppActivityBar from './AppActivityBar.svelte'
+	import * as Resizable from '$lib/components/ui/resizable/index.js'
 </script>
 
-<Resizable.PaneGroup direction="horizontal" class="h-full w-full overflow-hidden rounded-lg border">
+<Resizable.PaneGroup
+	direction="vertical"
+	class="h-full w-full overflow-visible ">
 	<Resizable.Pane
-		defaultSize={25}
-		class="min-h-0 min-w-0 overflow-hidden border-2"
-		collapsedSize={0}
-		collapsible={true}
-		minSize={10}
-		maxSize={30}
-		bind:this={paneOne}><SidebarShell></SidebarShell></Resizable.Pane
-	>
-
-	<Resizable.Handle withHandle ontoggle={toggleFirstPane} />
-
-	<Resizable.Pane defaultSize={75} class="min-h-0 min-w-0 overflow-hidden border-2">
-		<Resizable.PaneGroup direction="vertical"></Resizable.PaneGroup></Resizable.Pane
-	>
+		defaultSize={5}
+		minSize={5}
+		maxSize={5}
+		class="bg-primary-foreground shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+		<AppActivityBar></AppActivityBar>
+	</Resizable.Pane>
+	<Resizable.Pane
+		defaultSize={95}
+		minSize={5}
+		maxSize={95}
+		class="shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+		<AppInnerShell></AppInnerShell>
+	</Resizable.Pane>
 </Resizable.PaneGroup>
