@@ -23,11 +23,12 @@
 		collapsible={true}
 		minSize={10}
 		maxSize={30}
-		bind:this={paneOne}
-	></Resizable.Pane>
+		bind:this={paneOne}><SidebarShell></SidebarShell></Resizable.Pane
+	>
 
 	<Resizable.Handle withHandle ontoggle={toggleFirstPane} />
 
-	<Resizable.Pane defaultSize={75} class="min-h-0 min-w-0 overflow-hidden border-2"
-	></Resizable.Pane>
+	<Resizable.Pane defaultSize={75} class="min-h-0 min-w-0 overflow-hidden border-2">
+		<Resizable.PaneGroup direction="vertical"></Resizable.PaneGroup></Resizable.Pane
+	>
 </Resizable.PaneGroup>
